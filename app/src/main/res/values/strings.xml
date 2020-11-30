@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shelter</string>
+    <string name="animals_label">Animals</string>
+    <string name="donate_label">Donate</string>
+    <string name="contact_label">Contact</string>
+    <string name="news_label">News</string>
+</resources>
