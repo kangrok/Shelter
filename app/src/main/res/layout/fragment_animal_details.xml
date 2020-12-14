@@ -33,7 +33,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="@string/name_placeholder"
                     android:textColor="@color/text_main"
                     android:textSize="32sp"
                     android:textStyle="bold" />
@@ -193,7 +192,7 @@
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-    </ScrollView>
 
+    </ScrollView>
 
 </RelativeLayout>

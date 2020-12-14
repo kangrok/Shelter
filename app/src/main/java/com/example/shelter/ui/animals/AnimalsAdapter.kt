@@ -1,12 +1,13 @@
 package com.example.shelter.ui.animals
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shelter.R
 import com.example.shelter.models.Animal
+import com.koushikdutta.ion.Ion.with
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.animal_item.view.*
 
 class AnimalsAdapter(private var listener: AnimalsAdapterListener) :
@@ -34,8 +35,9 @@ class AnimalsAdapter(private var listener: AnimalsAdapterListener) :
                 "M" -> imageview_gender.setImageResource(R.drawable.ic_gender_male)
                 "F" -> imageview_gender.setImageResource(R.drawable.ic_gender_female)
             }
-            Log.i(animal.id, "${animal.imgs.size}")
-            imageview_animal_item.setImageBitmap(animal.imgs[0])
+            if (animal.imgs.size > 0) {
+                Picasso.get().load(animal.imgs[0]).fit().centerCrop().into(imageview_animal_item)
+            }
             setOnClickListener { listener.onAnimalClick(animal) }
         }
     }

@@ -1,11 +1,11 @@
 package com.example.shelter.ui.animals
 
 import android.content.res.Configuration
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -19,15 +19,14 @@ import com.google.firebase.firestore.ktx.firestore
 
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class AnimalsFragment : Fragment() {
 
     private val args: AnimalsFragmentArgs by navArgs()
     private lateinit var viewModel: AnimalsViewModel
     private lateinit var animalsAdapter: AnimalsAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +42,13 @@ class AnimalsFragment : Fragment() {
         }
         (activity as MainActivity).supportActionBar?.title = resources.getString(titleId)
 
+        setUpRecyclerView(view)
+        displayAnimals()
+        return view
+    }
+
+    private fun setUpRecyclerView(view: View) {
+        progressBar = view.findViewById(R.id.progressBar)
         viewModel = ViewModelProvider(this).get(AnimalsViewModel::class.java)
 
         animalsAdapter = AnimalsAdapter(object : AnimalsAdapter.AnimalsAdapterListener {
@@ -51,7 +57,7 @@ class AnimalsFragment : Fragment() {
             }
         })
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerview_animals)
+        recyclerView = view.findViewById(R.id.recyclerview_animals)
         recyclerView.adapter = animalsAdapter
 
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -59,12 +65,6 @@ class AnimalsFragment : Fragment() {
         } else {
             recyclerView.layoutManager = GridLayoutManager(activity, 4)
         }
-
-        CoroutineScope(Dispatchers.Default).launch {
-            displayAnimals()
-        }
-
-        return view
     }
 
     private fun displayAnimals() {
@@ -102,13 +102,15 @@ class AnimalsFragment : Fragment() {
             animal.imgLocations.forEachIndexed { j, location ->
                 val imgRef = Firebase.storage.getReference("${animal.id}/$location")
 
-                imgRef.getBytes(1024 * 1024).addOnSuccessListener {
-                    animal.addImg(BitmapFactory.decodeByteArray(it, 0, it.size))
+                imgRef.downloadUrl.addOnSuccessListener {
+                    animal.addImg(it)
 
                     if (i == lastAnimal && j == lastImg) {
                         viewModel.animals = animals.toTypedArray()
                         animalsAdapter.data = viewModel.animals
                         animalsAdapter.notifyDataSetChanged()
+                        recyclerView.visibility = View.VISIBLE
+                        progressBar.visibility = View.GONE
                     }
                 }
             }

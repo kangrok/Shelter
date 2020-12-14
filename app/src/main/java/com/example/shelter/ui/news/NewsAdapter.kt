@@ -66,8 +66,9 @@ class NewsAdapter(private var listener: NewsAdapterListener): RecyclerView.Adapt
         if (time == 1L) return Pair(time, R.string.month)
         if (time < 12) return Pair(time, R.string.months)
 
+        time /= 12
         if (time == 1L) return Pair(time, R.string.year)
-        return Pair(time / 12, R.string.years)
+        return Pair(time, R.string.years)
     }
 
     override fun getItemCount(): Int {

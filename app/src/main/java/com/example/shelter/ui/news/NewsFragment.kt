@@ -58,11 +58,9 @@ class NewsFragment : Fragment() {
                     val thumbnail = if (author.get("thumbnail").isJsonNull) {
                         "https://f11.pmo.ee/AUPuadt4zS8q5iPGin9551SzoH0=/155x155/smart/nginx/o/2016/11/24/6106027t1h5f3e.png"
                     } else {
-                        author.get("thumbnail").asJsonObject.get("sources").asJsonObject.get("square").asJsonObject.get(
-                            "xsmall"
-                        ).asString
+                        author.get("thumbnail").asJsonObject.get("sources").asJsonObject
+                            .get("square").asJsonObject.get("xsmall").asString
                     }
-
                     articles.add(
                         NewsArticle(
                             articleJson.get("id").asString,
@@ -77,7 +75,6 @@ class NewsFragment : Fragment() {
                         )
                     )
                 }
-                Log.i("articles", articles.size.toString())
                 viewModel.articles = articles.toTypedArray()
                 newsAdapter.data = viewModel.articles
                 newsAdapter.notifyDataSetChanged()

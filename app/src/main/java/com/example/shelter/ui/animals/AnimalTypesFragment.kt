@@ -1,5 +1,6 @@
 package com.example.shelter.ui.animals
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.shelter.R
+import com.example.shelter.ui.home.HomeFragment
 
 class AnimalTypesFragment : Fragment() {
 
@@ -16,7 +18,16 @@ class AnimalTypesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_animal_types, container, false)
+
+        val layout =
+            if (parentFragment?.javaClass != HomeFragment::class.java &&
+                resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                R.layout.fragment_animal_types
+            } else {
+                R.layout.fragment_animal_types_land
+            }
+
+        val view = inflater.inflate(layout, container, false)
 
         val dogsButton = view.findViewById<ImageButton>(R.id.button_dogs)
         dogsButton.setOnClickListener {

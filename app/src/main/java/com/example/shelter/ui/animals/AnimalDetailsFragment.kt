@@ -1,6 +1,6 @@
 package com.example.shelter.ui.animals
 
-import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +13,8 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.shelter.MainActivity
 import com.example.shelter.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_animal_details.view.*
-import java.util.*
 
 class AnimalDetailsFragment : Fragment() {
 
@@ -54,13 +54,13 @@ class AnimalDetailsFragment : Fragment() {
     private fun displayAnimalDetails(view: View) {
         val animal = args.animal
 
-        view.textview_name.text = animal.name
+        val genderRes = if (animal.gender == "M") R.drawable.ic_gender_male else R.drawable.ic_gender_female
+        view.imageview_gender.setImageResource(genderRes)
 
-        if (animal.gender == "M") {
-            view.imageview_gender.setImageResource(R.drawable.ic_gender_male)
-        } else {
-            view.imageview_gender.setImageResource(R.drawable.ic_gender_female)
-        }
+        view.textview_type.text = resources.getString((when (animal.type) {
+            "dog" -> R.string.dog
+            "cat" -> R.string.cat
+            else -> R.string.other }))
 
         val unitId = if (animal.age == "1") {
             if (animal.ageUnit == "year") R.string.year else R.string.month
@@ -68,21 +68,26 @@ class AnimalDetailsFragment : Fragment() {
             if (animal.ageUnit == "year") R.string.years else R.string.months
         }
         view.textview_age.text = "${animal.age} ${resources.getString(unitId)}"
-        view.textview_type.text = animal.type.capitalize(Locale.ROOT)
-        view.textview_breed.text = animal.breed
-        view.textview_description.text = animal.description
-        view.text_meet_name.text = animal.name
 
+        if (animal.description == "") {
+            view.textview_description.visibility = View.GONE
+        } else {
+            view.textview_description.text = animal.description
+        }
+
+        view.textview_name.text = animal.name
+        view.textview_breed.text = animal.breed
+        view.text_meet_name.text = animal.name
     }
 
     inner class ImagePagerAdapter : PagerAdapter() {
 
-        var data = arrayListOf<Bitmap>()
+        var data = arrayListOf<Uri>()
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             val imageView = ImageView(activity)
             imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-            imageView.setImageBitmap(args.animal.imgs[position])
+            Picasso.get().load(data[position]).into(imageView)
             (container as ViewPager).addView(imageView)
             return imageView
         }

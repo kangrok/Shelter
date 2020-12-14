@@ -1,3 +1,5 @@
+package com.example.shelter.utils
+
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.res.Configuration

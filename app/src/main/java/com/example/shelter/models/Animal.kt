@@ -1,6 +1,6 @@
 package com.example.shelter.models
 
-import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
@@ -16,12 +16,12 @@ data class Animal(
     val description: String,
     val imgLocations: ArrayList<String>
 ) : Parcelable {
-    var imgs = arrayListOf<Bitmap>()
+    var imgs = arrayListOf<Uri>()
 
-    fun addImg(img: Bitmap) {
-        imgs.add(img)
+    fun addImg(uri: Uri) {
+        imgs.add(uri)
         if (imgs.size > 1) {
-            imgs.sortBy { it.byteCount }
+            imgs.sort()
         }
     }
 }
