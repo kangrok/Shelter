@@ -7,13 +7,10 @@
             android:id="@+id/homeFragment" />
         <item
             android:title="@string/animals_label"
-            android:id="@+id/animalsFragment" />
+            android:id="@+id/animalTypesFragment" />
         <item
             android:title="@string/news_label"
             android:id="@+id/newsFragment" />
-        <item
-            android:title="@string/donate_label"
-            android:id="@+id/donateFragment" />
         <item
             android:title="@string/contact_label"
             android:id="@+id/contactFragment" />
