@@ -8,7 +8,6 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.shelter.R
-import com.example.shelter.ui.animals.AnimalTypesFragmentDirections
 
 class AnimalTypesFragment : Fragment() {
 

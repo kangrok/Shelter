@@ -21,6 +21,39 @@
         android:label="@string/contact_label" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.shelter.NewsFragment"
-        android:label="@string/news_label" />
+        android:name="com.example.shelter.ui.news.NewsFragment"
+        android:label="@string/news_label" >
+        <action
+            android:id="@+id/navigate_to_article"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animalsFragment"
+        android:name="com.example.shelter.ui.animals.AnimalsFragment" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <action
+            android:id="@+id/navigate_to_animal_details"
+            app:destination="@id/animalDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animalDetailsFragment"
+        android:name="com.example.shelter.ui.animals.AnimalDetailsFragment" >
+        <argument
+            android:name="animal"
+            app:argType="com.example.shelter.models.Animal" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.shelter.ui.news.ArticleFragment"
+        android:label="@string/news_label" >
+        <argument
+            android:name="article"
+            app:argType="com.example.shelter.models.NewsArticle" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.shelter.ui.SettingsFragment"
+        android:label="@string/settings_label" />
 </navigation>
