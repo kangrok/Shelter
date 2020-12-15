@@ -1,7 +1,12 @@
 package com.example.shelter.ui.animals
 
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,7 +82,12 @@ class AnimalDetailsFragment : Fragment() {
 
         view.textview_name.text = animal.name
         view.textview_breed.text = animal.breed
-        view.text_meet_name.text = animal.name
+        val meetText = getString(R.string.schedule_visit, animal.name)
+        val ss = SpannableString(meetText)
+        val start = meetText.indexOf(animal.name, 0)
+        ss.setSpan(ForegroundColorSpan(resources.getColor(R.color.primary)), start, start + animal.name.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(StyleSpan(Typeface.BOLD), start, start + animal.name.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        view.text_meet_animal.text = ss
     }
 
     inner class ImagePagerAdapter : PagerAdapter() {

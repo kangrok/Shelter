@@ -8,12 +8,12 @@
     android:layout_weight="1"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="32dp">
+    android:padding="@dimen/margin_large">
 
     <androidx.cardview.widget.CardView
         android:layout_width="240dp"
         android:layout_height="130dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="@dimen/corner_radius_standard">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -41,8 +41,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="240dp"
         android:layout_height="130dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="32dp">
+        app:cardCornerRadius="@dimen/corner_radius_standard"
+        android:layout_marginTop="@dimen/margin_large">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -70,8 +70,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="240dp"
         android:layout_height="130dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="32dp">
+        app:cardCornerRadius="@dimen/corner_radius_standard"
+        android:layout_marginTop="@dimen/margin_large">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

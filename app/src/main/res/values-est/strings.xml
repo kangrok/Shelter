@@ -5,8 +5,7 @@
     <string name="contact_label">Kontakt</string>
     <string name="news_label">Uudised</string>
     <string name="postimees_thumbnail">https://f11.pmo.ee/AUPuadt4zS8q5iPGin9551SzoH0=/155x155/smart/nginx/o/2016/11/24/6106027t1h5f3e.png</string>
-    <string name="schedule_visit_left">&#160;</string>
-    <string name="schedule_visit_right">&#160;ootab sind! Lepi kokku kohtumine:</string>
+    <string name="schedule_visit">%1$s ootab sind! Lepi kokku kohtumine:</string>
     <string name="name_placeholder">Nimi</string>
     <string name="phone_number_visit">+372 5333 9272</string>
     <string name="phone_number_info">15400</string>

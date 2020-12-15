@@ -11,22 +11,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
 
-        android:paddingVertical="32dp">
+        android:paddingVertical="@dimen/margin_large">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/margin_small"
             android:text="@string/visiting_times"
             android:textColor="@color/primary"
             android:textSize="18sp"
-            android:layout_marginStart="32dp"/>
+            android:layout_marginStart="@dimen/margin_large"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            app:cardCornerRadius="8dp"
+            android:layout_marginEnd="@dimen/margin_large"
+            app:cardCornerRadius="@dimen/corner_radius_standard"
             android:layout_marginStart="33dp">
 
             <RelativeLayout
@@ -45,7 +45,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/margin_small"
                     android:layout_toEndOf="@+id/visit_time_tue"
                     android:text="@string/visit_time_tue_fri" />
 
@@ -61,19 +61,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/visit_time_tue"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/margin_small"
                     android:layout_toEndOf="@+id/visit_time_sat"
                     android:text="@string/visit_time_sat" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_call"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/visit_time_sat"
                     android:layout_marginTop="12dp"
-                    android:drawableLeft="@drawable/ic_baseline_call_24"
                     android:text="@string/phone_number_visit"
-                    app:cornerRadius="8dp" />
+                    app:cornerRadius="@dimen/corner_radius_standard"
+                    style="@style/call_button"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -81,11 +80,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/margin_large"
             android:text="@string/animals_label"
             android:textColor="@color/primary"
             android:textSize="18sp"
-            android:layout_marginStart="32dp"/>
+            android:layout_marginStart="@dimen/margin_large"/>
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
@@ -108,19 +107,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
             android:text="@string/reception_of_animals"
             android:textColor="@color/primary"
             android:textSize="18sp"
-            android:layout_marginStart="32dp"/>
+            android:layout_marginStart="@dimen/margin_large"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="@dimen/margin_large"
             android:layout_marginBottom="2dp"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="@dimen/corner_radius_standard"
             android:layout_marginStart="33dp">
 
             <RelativeLayout
@@ -138,7 +137,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/margin_small"
                     android:layout_toEndOf="@+id/reception_time"
                     android:text="@string/reception_time" />
 
@@ -151,13 +150,12 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_call_reception"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/reception_info"
                     android:layout_marginTop="12dp"
-                    android:drawableLeft="@drawable/ic_baseline_call_24"
                     android:text="@string/phone_number_visit"
-                    app:cornerRadius="8dp" />
+                    app:cornerRadius="@dimen/corner_radius_standard"
+                    style="@style/call_button" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>

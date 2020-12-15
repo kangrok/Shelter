@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/textview_article_title"
                 android:layout_marginTop="233dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="@dimen/margin_medium">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardview_author"
@@ -68,7 +68,7 @@
                     android:id="@+id/textview_author"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
@@ -79,7 +79,7 @@
                     android:id="@+id/textview_article_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/margin_small"
                     android:paddingBottom="2dp"
                     android:textColor="#cccccc"
                     android:layout_toEndOf="@id/cardview_author"
@@ -94,7 +94,7 @@
                 android:layout_below="@+id/imageview_article"
                 android:layout_alignStart="@+id/textview_article_title"
                 android:layout_alignEnd="@+id/textview_article_title"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="@dimen/margin_large"
                 android:textColor="@color/text_main"/>
 
             <TextView

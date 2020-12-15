@@ -4,8 +4,7 @@
     <string name="contact_label">Contact</string>
     <string name="news_label">News</string>
     <string name="postimees_thumbnail">https://f11.pmo.ee/AUPuadt4zS8q5iPGin9551SzoH0=/155x155/smart/nginx/o/2016/11/24/6106027t1h5f3e.png</string>
-    <string name="schedule_visit_left">Schedule a visit to meet&#160;</string>
-    <string name="schedule_visit_right">!</string>
+    <string name="schedule_visit">Schedule a visit to meet %1$s!</string>
     <string name="name_placeholder">Name</string>
     <string name="phone_number_visit">+372 5333 9272</string>
     <string name="phone_number_info">+372 5333 9272</string>

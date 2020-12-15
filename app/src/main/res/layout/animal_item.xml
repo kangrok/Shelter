@@ -10,7 +10,7 @@
         android:layout_width="170dp"
         android:layout_height="210dp"
         android:layout_margin="10dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="@dimen/corner_radius_standard">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_main"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginStart="12dp" />
 
             <ImageView
@@ -42,8 +42,8 @@
                 android:layout_below="@id/imageview_animal_item"
                 android:layout_alignParentEnd="true"
                 android:scaleType="fitXY"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small" />
 
         </RelativeLayout>
 

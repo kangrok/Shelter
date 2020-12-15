@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="-30dp"
         android:layout_marginEnd="-30dp"
-        app:cardCornerRadius="30dp">
+        app:cardCornerRadius="@dimen/corner_radius_large">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -25,8 +25,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="32dp">
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_large">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textview_name"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textview_name"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="32dp">
+                    android:layout_marginTop="@dimen/margin_large">
 
                     <LinearLayout
 
@@ -144,49 +144,28 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/info_container"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="@dimen/margin_large"
                     android:lineSpacingExtra="4dp" />
 
-                <LinearLayout
-                    android:id="@+id/meet_animal"
+
+                <TextView
+                    android:id="@+id/text_meet_animal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textview_description"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="32dp">
-
-                    <TextView
-                        android:id="@+id/text_meet_left"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/schedule_visit_left" />
-
-                    <TextView
-                        android:id="@+id/text_meet_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:textColor="@color/primary"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/text_meet_right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/schedule_visit_right" />
-
-                </LinearLayout>
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_medium"/>
 
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_call"
-                    android:layout_width="wrap_content"
                     android:layout_height="54dp"
-                    android:layout_below="@+id/meet_animal"
+                    android:layout_below="@+id/text_meet_animal"
                     android:layout_centerHorizontal="true"
-                    android:drawableLeft="@drawable/ic_baseline_call_24"
                     android:text="@string/phone_number_visit"
-                    app:cornerRadius="8dp" />
+                    app:cornerRadius="@dimen/corner_radius_standard"
+                    style="@style/call_button"/>
 
             </RelativeLayout>
 

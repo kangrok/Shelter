@@ -8,9 +8,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/margin_medium"
         android:layout_height="160dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="@dimen/corner_radius_standard">
 
         <ImageView
             android:id="@+id/imageview_article"
@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="Author"
                 android:gravity="start|center_vertical"
-                android:layout_marginStart="8dp"/>
+                android:layout_marginStart="@dimen/margin_small"/>
 
             <TextView
                 android:id="@+id/textview_title"
